@@ -9,7 +9,7 @@ const port = 3000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://danish-frontend.vercel.app/",
+    origin: "https://danish-frontend-2.vercel.app/",
   })
 );
 
