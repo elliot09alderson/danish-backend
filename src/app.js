@@ -9,7 +9,8 @@ const port = 3000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://danish-frontend-2.vercel.app",
+    // origin: ["https://danish-frontend-2.vercel.app", "http://localhost:5173"],
+    origin: "http://localhost:5173",
   })
 );
 
@@ -73,7 +74,7 @@ app.get("/", async (req, res) => {
 });
 app.get("/getdetailsxyz", async (req, res) => {
   try {
-    const users = await Registration.find();
+    const users = await Registration.find().sort({ createdAt: -1 });
     res.status(200).json({ message: "data fetched sucessfully", data: users });
   } catch (error) {
     res.status(400).json({ error: error.message });
