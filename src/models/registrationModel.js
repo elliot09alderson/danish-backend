@@ -9,12 +9,12 @@ const registrationSchema = new Schema(
   {
     name: { type: String, required: true },
 
-    email: { type: String, required: true },
+    email: { type: String },
     phoneNumber: { type: String, required: true },
-    date: { type: Date, required: true },
-    message: { type: String, required: true },
+    dateOfEvent: { type: Date, default: Date.now },
+    message: { type: String },
     services: {
-      type: String,
+      type: [String],
       enum: [
         "WeddingCoverage",
         "Pre-wedding",
@@ -26,10 +26,10 @@ const registrationSchema = new Schema(
         "KidsShoot",
         "Birthday",
       ],
-      required: true,
+      default: [],
     },
-    reachedThrough: { type: String, required: true },
-    query: { type: String, required: true },
+    reachedThrough: { type: String },
+    query: { type: String },
   },
   {
     timestamps: true,
